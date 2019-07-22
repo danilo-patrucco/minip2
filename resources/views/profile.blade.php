@@ -14,10 +14,8 @@
                             </div>
                         @endif
 
-                        your profile page
-                            @foreach ($users as $user)
-                                {{ $user->name }}
-                            @endforeach
+                        your profile page {{ Auth::user()->name }}
+
                     </div>
                 </div>
             </div>

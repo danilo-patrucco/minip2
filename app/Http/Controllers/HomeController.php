@@ -28,7 +28,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function profile()
+    {
 
+        $users = User::all();
+        return view('profile',['users'=>$users]);
+    }
     public function contact()
     {
         return view('contact');

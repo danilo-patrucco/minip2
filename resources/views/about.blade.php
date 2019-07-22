@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    about page {{$myvariable}}
+                    about page
                 </div>
             </div>
         </div>
