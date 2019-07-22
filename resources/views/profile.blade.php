@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        your profile page {{ Auth::user()->name }}
+                        your profile page{{ Auth::user()->name }}
 
                     </div>
                 </div>
