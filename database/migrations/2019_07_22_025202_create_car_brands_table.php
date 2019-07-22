@@ -15,6 +15,10 @@ class CreateCarBrandsTable extends Migration
     {
         Schema::create('car_brands', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('make');
+            $table->text('model');
+            $table->integer('year');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -24,8 +28,8 @@ class CreateCarBrandsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('car_brands');
-    }
+    //public function down()
+    //{
+    //Schema::dropIfExists('car_brands');
+    //}
 }

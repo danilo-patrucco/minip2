@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -19,10 +22,27 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
         return view('home');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+    function store (Request $request)
+    {
+        /*$name = $request->name;*/
+        $name = $request['name'];
+        return redirect()->route('thanks',['name'=>$name]);
+    }
+    function thanks ($name){
+
+        //return view('thankyou')->with(compact('name'));
+        $users = User::all();
+        return view('thankyou',['users'=>$users]);
     }
 }
