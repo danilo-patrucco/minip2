@@ -16,6 +16,7 @@ class about_page_Test extends TestCase
     public function testExample()
     {
         $response = $this->get('/profile');
-        $response->assertStatus(200);
+
+        $response->assertStatus(302);
     }
 }
