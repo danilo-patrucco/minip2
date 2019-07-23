@@ -17,7 +17,7 @@ class user_insertion_Test extends TestCase
      */
     public function countusers ()
     {
-        $this->assertEquals(50, DB::table('users')->count());
+        $this->assertEquals(50, User::table('users')->count());
     }
     public function testExample()
     {

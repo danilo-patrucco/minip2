@@ -16,6 +16,11 @@ class Car_insertion_Test extends TestCase
      *
      * @return void
      */
+    public function countusers()
+    {
+        $count=CarBrand::table('car_brand')->count();
+        $this->assertEquals(50,$count);
+    }
     public function testExample()
     {
         $user = new CarBrand([
