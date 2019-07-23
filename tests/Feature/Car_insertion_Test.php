@@ -30,10 +30,18 @@ class Car_insertion_Test extends TestCase
     }
     public function testswapyear()
     {
-        CarBrand::where('year', '1980')
+        CarBrand::where('make', 'asdcar')
             ->update(['year' => '2000']);
         $this->assertDatabaseHas('car_brands', [
             'year' => '2000'
+        ]);
+    }
+    public function deletecar()
+    {
+        CarBrand::where('make', 'asdcar')
+            ->delete();
+        $this->assertDatabaseMissing('car_brands', [
+            'make' => 'asdcar'
         ]);
     }
 }
