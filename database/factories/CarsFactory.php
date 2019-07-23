@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
+
 $factory->define(App\CarBrand::class, function (Faker $faker) {
     $model = array ("super","notthatsuper","godhelpus");
     $makes = array("Ford","Toyota","Honda");
