@@ -16,9 +16,9 @@ class Car_insertion_Test extends TestCase
      *
      * @return void
      */
-    public function countusers()
+    public function testcountcars()
     {
-        $count=CarBrand::table('car_brand')->count();
+        $count=CarBrand::count('car_brand');
         $this->assertEquals(50,$count);
     }
     public function testExample()
@@ -41,12 +41,20 @@ class Car_insertion_Test extends TestCase
             'year' => '2000'
         ]);
     }
-    public function deletecar()
+    public function testdeletecar()
     {
         CarBrand::where('make', 'asdcar')
             ->delete();
         $this->assertDatabaseMissing('car_brands', [
             'make' => 'asdcar'
         ]);
+    }
+    public function testCheckYear()
+    {
+        $car=CarBrand::inRandomOrder()->first();
+        $caryear=$car->year;
+        settype($caryear,"integer");
+        $this->assertIsInt($caryear);
+
     }
 }

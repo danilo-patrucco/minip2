@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\CarBrand;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -15,9 +16,10 @@ class user_insertion_Test extends TestCase
      *
      * @return void
      */
-    public function countusers ()
+    public function testcountusers ()
     {
-        $this->assertEquals(50, User::table('users')->count());
+        $count=User::count('users');
+        $this->assertEquals(50, $count);
     }
     public function testExample()
     {
@@ -40,7 +42,7 @@ class user_insertion_Test extends TestCase
         ]);
     }
 
-    public function deleteuser()
+    public function testdeleteuser()
     {
         User::where('name', 'Steve Smith')
             ->delete();
