@@ -64,4 +64,11 @@ class Car_insertion_Test extends TestCase
         $this->assertContains($carmake,["Ford","Toyota","Honda"]);
 
     }
+    public function testCheckModelSTRING()
+    {
+        $car=CarBrand::inRandomOrder()->first();
+        $caryear=$car->model;
+        $this->assertIsString($caryear);
+
+    }
 }
