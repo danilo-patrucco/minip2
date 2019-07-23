@@ -15,6 +15,10 @@ class user_insertion_Test extends TestCase
      *
      * @return void
      */
+    public function countusers ()
+    {
+        $this->assertEquals(50, DB::table('users')->count());
+    }
     public function testExample()
     {
         $user = new User([
@@ -35,10 +39,11 @@ class user_insertion_Test extends TestCase
             'name' => 'Steve Smith'
         ]);
     }
+
     public function deleteuser()
     {
         User::where('name', 'Steve Smith')
-        ->delete();
+            ->delete();
         $this->assertDatabaseMissing('users', [
             'name' => 'Steve Smith'
         ]);
