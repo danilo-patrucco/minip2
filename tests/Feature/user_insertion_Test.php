@@ -29,9 +29,17 @@ class user_insertion_Test extends TestCase
     }
     public function testswapname()
     {
-        $user = User::where('name', 'asdTest')
+        User::where('name', 'asdTest')
             ->update(['name' => 'Steve Smith']);
         $this->assertDatabaseHas('users', [
+            'name' => 'Steve Smith'
+        ]);
+    }
+    public function deleteuser()
+    {
+        User::where('name', 'Steve Smith')
+        ->delete();
+        $this->assertDatabaseMissing('users', [
             'name' => 'Steve Smith'
         ]);
     }
